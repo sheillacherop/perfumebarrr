@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | The Perfume Bar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700&family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --desert-sand: #F8DCD9;
+            --sage: #7A9A91;
+            --white: #FFFFFF;
+            --pink-title: #E197B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'PT Serif', serif;
+            background-color: var(--desert-sand);
+        }
+
+        /* Background using images/hope.png */
+        .bg-container {
+            background-image: url('images/Hope.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(248, 220, 217, 0.7); /* Desert sand tint */
+            backdrop-filter: blur(3px);
+        }
+
+        .content-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--pink-title);
+            margin-bottom: 0.5rem;
+        }
+
+        .grateful-note {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-item {
+            background: #fffafa;
+            padding: 1.2rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--pink-title);
+        }
+
+        .policy-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: var(--sage);
+        }
+
+        .policy-item p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .special-offer {
+            background: var(--sage);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .return-btn {
+            text-decoration: none;
+            background: var(--pink-title);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(225, 151, 176, 0.3);
+        }
+
+        .return-btn:hover {
+            transform: translateY(-3px);
+            background: var(--sage);
+            box-shadow: 0 15px 25px rgba(122, 154, 145, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .policy-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 3.2rem; }
+            .content-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container">
+        <div class="overlay"></div>
+        
+        <div class="content-card">
+            <h1>Thank You</h1>
+            <p class="grateful-note">
+                The Perfume Bar is deeply grateful for your support. <br>
+                Thank you for believing in Mutai’s vision for luxury and scent.
+            </p>
+
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <h3>Refund Policy</h3>
+                    <p>We value your satisfaction. Refunds are processed with kindness if the product is returned in its original condition.</p>
+                </div>
+                <div class="policy-item">
+                    <h3>Delivery</h3>
+                    <p>Prices vary by location. Enjoy <strong>FREE delivery</strong> when you order 3 or more bottles!</p>
+                </div>
+                <div class="policy-item">
+                    <h3>Referrals</h3>
+                    <p>Refer a friend using this week’s code to receive a <strong>free decant</strong> on your next purchase.</p>
+                </div>
+                <div class="policy-item">
+                    <h3>Loyalty</h3>
+                    <p>Our faithful customers are family. Enjoy a <strong>complimentary decant</strong> as a token of our appreciation.</p>
+                </div>
+            </div>
+
+            <div class="special-offer">
+                <i class="fas fa-magic"></i> Refer-a-friend code: <strong>BAR-MARCH-W4</strong>
+            </div>
+            
+            <div class="btn-group">
+                <a href="shop.html" class="return-btn">Back to Shopping</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

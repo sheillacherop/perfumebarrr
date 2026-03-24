@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perfume Bar | By Hope Chemutai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #E8A4B8;
+            --sage: #ABD1C6;
+            --bg-cream: #FAF9F6;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg-cream); 
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle, rgba(250,249,246,1) 0%, rgba(245,240,235,1) 100%);
+        }
+
+        .perfume-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 8rem;
+            color: var(--primary-pink);
+            margin: 0;
+            line-height: 1;
+            animation: fadeIn 3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wave-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            font-weight: 300;
+            color: var(--sage);
+        }
+
+        .tagline {
+            max-width: 400px;
+            margin-top: 20px;
+            font-weight: 300;
+            font-style: italic;
+            color: #555;
+        }
+
+        .cta-button {
+            margin-top: 40px;
+            padding: 15px 40px;
+            border: 1px solid var(--primary-pink);
+            color: var(--primary-pink);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            background: transparent;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-pink);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .perfume-text { font-size: 4rem; }
+            .wave-subtitle { font-size: 0.7rem; letter-spacing: 2px; margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1 class="perfume-text">The Perfume Bar</h1>
+        <p class="wave-subtitle">by Hope Chemutai</p>
+        <p class="tagline">
+            "Fragrance over everything."
+        </p>
+        
+        <a href="home.html" class="cta-button">Secure Your Scent</a>
+    </section>
+
+</body>
+</html>
