@@ -3,434 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Perfume Bar | Full Collection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Great+Vibes&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Shop | The Perfume Bar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         :root {
-            --desert-sand: #F8DCD9; 
-            --sage: #7A9A91;        
-            --white: #FFFFFF;
-            --pink-title: #E197B0; 
+            --espresso: #291C0E;
+            --mocha: #4A3728;
+            --champagne: #E1D4C2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'PT Serif', serif;
-            background-color: var(--desert-sand);
-            color: var(--sage);
-            padding-bottom: 5rem;
-            line-height: 1.6;
-        }
-
-        header { text-align: center; padding: 3rem 1rem; }
-
-        .page-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5.5rem;
-            color: var(--pink-title);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .logo-subtitle {
             font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 8px;
-            color: var(--sage);
-            text-transform: uppercase;
+            background: linear-gradient(rgba(41, 28, 14, 0.85), rgba(41, 28, 14, 0.85)), 
+                        url('images/home.png') center/cover no-repeat fixed;
+            color: var(--champagne);
+            min-height: 100vh;
+            padding-top: 100px;
         }
 
-        .main-nav {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            text-decoration: none;
-            color: var(--sage);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 8px 18px;
-            border: 1px solid var(--sage);
-            border-radius: 40px;
-            transition: 0.3s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-btn:hover { background: var(--sage); color: var(--white); }
-        .exit-btn { border-color: #ff6b6b; color: #ff6b6b; }
-        .exit-btn:hover { background: #ff6b6b; color: white; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-        .section-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            text-align: center;
-            margin: 4rem 0 2rem;
-            color: var(--white);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            transition: 0.4s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-        }
-
-        .brand { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
-        .p-name { font-family: 'Great Vibes', cursive; font-size: 2.6rem; margin: 0.5rem 0; line-height: 1; }
-        .p-desc { font-size: 0.9rem; margin-bottom: 1.5rem; height: 50px; font-style: italic; overflow: hidden; }
-        .price-tag { font-weight: 700; font-size: 1.1rem; display: block; margin-bottom: 0.2rem; }
-        .decant-info { font-size: 0.8rem; opacity: 0.7; margin-bottom: 1.5rem; display: block; }
-
-        .add-btn {
-            background: var(--sage);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 35px;
-            width: 100%;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        #basket-icon {
+        /* HEADER & NAVIGATION */
+        .floating-cart {
             position: fixed;
-            top: 25px;
-            right: 25px;
-            background: var(--sage);
-            color: white;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
+            top: 0; width: 100%;
+            background: rgba(41, 28, 14, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 15px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            border-bottom: 1px solid var(--mocha);
             z-index: 1000;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        #cart-count {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            background: var(--pink-title);
-            font-size: 0.85rem;
-            padding: 4px 9px;
-            border-radius: 50%;
-            border: 2px solid white;
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            color: var(--champagne);
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            transition: 0.3s;
         }
+        .nav-links a:hover { opacity: 1; border-bottom: 1px solid var(--champagne); }
 
-        #cart-panel {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 380px;
-            height: 100vh;
-            background: white;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-            transition: 0.4s;
-            z-index: 1001;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-        }
+        .cart-info { font-size: 0.8rem; font-weight: 600; cursor: pointer; letter-spacing: 1px; }
 
-        #cart-panel.open { right: 0; }
-        #cart-items-container { flex-grow: 1; overflow-y: auto; margin: 20px 0; }
-
-        .cart-item-row {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--desert-sand);
-        }
-
-        .confirm-btn {
-            width: 100%;
-            background: #25D366;
-            color: white;
-            padding: 18px;
-            border-radius: 40px;
+        .btn-confirm {
+            background: var(--champagne);
+            color: var(--espresso);
             border: none;
-            font-family: 'Inter', sans-serif;
+            padding: 10px 20px;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-confirm:hover { background: #fff; }
+
+        /* NOTIFICATION TOAST */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--mocha);
+            color: var(--champagne);
+            text-align: center;
+            border: 1px solid var(--champagne);
+            padding: 16px;
+            position: fixed;
+            z-index: 3000;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        @media (max-width: 600px) {
-            .page-title { font-size: 3.8rem; }
-            #cart-panel { width: 100%; right: -100%; }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        /* SHOP LAYOUT */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        
+        .category-header {
+            text-align: center;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin: 80px 0 40px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(225, 212, 194, 0.1);
+            padding-bottom: 15px;
         }
+
+        .perfume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .perfume-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(74, 55, 40, 0.5);
+            padding: 20px;
+            text-align: center;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .perfume-card:hover { border-color: var(--champagne); transform: translateY(-5px); }
+        .perfume-card img { width: 100%; height: 280px; object-fit: cover; margin-bottom: 15px; }
+        .perfume-card h4 { font-size: 0.8rem; letter-spacing: 1.5px; margin-bottom: 10px; height: 40px; display: flex; align-items: center; justify-content: center; }
+
+        /* BASKET DROPDOWN */
+        #cartItemsList {
+            position: absolute;
+            top: 75px; right: 5%;
+            background: var(--espresso);
+            padding: 25px;
+            display: none;
+            width: 350px;
+            border: 1px solid var(--champagne);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(225, 212, 194, 0.1);
+            padding-bottom: 8px;
+        }
+
+        .remove-btn { color: #ff4d4d; cursor: pointer; padding-left: 15px; font-size: 0.9rem; }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 2000;
+            justify-content: center; align-items: center;
+        }
+
+        .modal-content {
+            background: var(--espresso);
+            border: 1px solid var(--champagne);
+            padding: 50px 40px;
+            width: 90%; max-width: 450px;
+            text-align: center;
+        }
+
+        .option-btn {
+            background: transparent;
+            border: 1px solid var(--champagne);
+            color: var(--champagne);
+            padding: 15px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin: 10px 0;
+            width: 100%;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .option-btn:hover { background: var(--champagne); color: var(--espresso); }
     </style>
 </head>
 <body>
 
-    <div id="basket-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-basket" style="font-size: 1.5rem;"></i>
-        <span id="cart-count">0</span>
+    <div class="floating-cart">
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="#arabic">ARABIC</a>
+            <a href="#designer">DESIGNER</a>
+            <a href="#elite">ELITE</a>
+            <a href="home.html">STORY</a>
+            <a href="close shop.html">ANNOUNCEMENT</a>
+        </div>
+        <div class="cart-info" onclick="toggleCartList()">
+            <i class="fas fa-shopping-basket"></i> <span id="cartCount">0</span> ITEMS | KSH <span id="cartTotal">0</span>
+        </div>
+        <button class="btn-confirm" onclick="confirmOrder()">Confirm Order</button>
+        
+        <div id="cartItemsList">
+            <p style="font-size: 0.6rem; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.6; text-align: center;">YOUR SELECTION</p>
+            <div id="itemsContainer"></div>
+        </div>
     </div>
 
-    <div id="cart-panel">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-            <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--pink-title);">My Basket</h2>
-            <button onclick="toggleCart()" style="background:none; border:none; font-size: 2.5rem; cursor:pointer;">&times;</button>
-        </div>
-        <div id="cart-items-container"></div>
-        <div style="padding-top:20px; border-top: 2px solid var(--desert-sand);">
-            <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:15px;">
-                <span>Total:</span>
-                <span id="cart-total-price">KSh 0</span>
-            </div>
-            <button class="confirm-btn" onclick="sendToWhatsApp()">Confirm Order</button>
-        </div>
-    </div>
-
-    <header>
-        <h1 class="page-title">The Perfume Bar</h1>
-        <div class="logo-subtitle">Authentic & Niche</div>
-        <nav class="main-nav">
-            <a href="index.html" class="nav-btn">Intro</a>
-            <a href="home.html" class="nav-btn">Home</a>
-            <a href="shop.html" class="nav-btn" style="background: var(--sage); color: white; border:none;">Shop</a>
-            <a href="close shop.html" class="nav-btn exit-btn">Close Shop</a>
-        </nav>
-    </header>
+    <div id="toast">Added to Basket</div>
 
     <div class="container">
-        <h2 class="section-title">The Elite Gallery</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <span class="brand">Louis Vuitton</span>
-                <h3 class="p-name">Nuit De Feu</h3>
-                <p class="p-desc">Deep, smoky incense and luxury leather.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Nuit De Feu', 14500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">MFK</span>
-                <h3 class="p-name">Baccarat Rouge</h3>
-                <p class="p-desc">Burnt sugar and saffron. The status scent.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Baccarat Rouge', 14500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Amouage</span>
-                <h3 class="p-name">Interlude</h3>
-                <p class="p-desc">A powerful, spicy oriental masterpiece.</p>
-                <span class="price-tag">KSh 14,200</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Interlude', 14200)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Xerjoff</span>
-                <h3 class="p-name">Erba Pura</h3>
-                <p class="p-desc">Mediterranean citrus and warm oriental fruits.</p>
-                <span class="price-tag">KSh 14,000</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Erba Pura', 14000)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Creed</span>
-                <h3 class="p-name">Aventus</h3>
-                <p class="p-desc">Bold, spirited, and confident.</p>
-                <span class="price-tag">KSh 13,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Aventus', 13500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Le Labo</span>
-                <h3 class="p-name">Santal 33</h3>
-                <p class="p-desc">The iconic woody and spicy cult favorite.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Santal 33', 14500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Tom Ford</span>
-                <h3 class="p-name">Private Blend</h3>
-                <p class="p-desc">Sophisticated, bold, and unforgettable luxury.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Private Blend', 14500)">Add to Basket</button>
-            </div>
-        </div>
+        <h2 id="arabic" class="category-header">Arabic Collection</h2>
+        <div class="perfume-grid" id="grid-arabic"></div>
 
-        <h2 class="section-title">The Designer Suite</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <span class="brand">Valentino</span>
-                <h3 class="p-name">Yellow Dream</h3>
-                <p class="p-desc">Donna's zesty lemon and damascan rose.</p>
-                <span class="price-tag">KSh 12,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Yellow Dream', 12500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Valentino</span>
-                <h3 class="p-name">Purple Melanchonia</h3>
-                <p class="p-desc">Deep, mysterious, and elegantly floral.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Purple Melanchonia', 14500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">YSL</span>
-                <h3 class="p-name">Babycat</h3>
-                <p class="p-desc">Rare smoky vanilla and bourbon suede.</p>
-                <span class="price-tag">KSh 14,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Babycat', 14500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Chanel</span>
-                <h3 class="p-name">Mademoiselle</h3>
-                <p class="p-desc">The essence of a bold, free woman.</p>
-                <span class="price-tag">KSh 13,800</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Mademoiselle', 13800)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Dior</span>
-                <h3 class="p-name">Sauvage</h3>
-                <p class="p-desc">Crisp, spicy, and timelessly masculine.</p>
-                <span class="price-tag">KSh 11,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Sauvage', 11500)">Add to Basket</button>
-            </div>
-        </div>
+        <h2 id="designer" class="category-header">Designer Collection</h2>
+        <div class="perfume-grid" id="grid-designer"></div>
 
-        <h2 class="section-title">Arabic & Gourmand</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <span class="brand">Lattafa</span>
-                <h3 class="p-name">Khamrah Duhkan</h3>
-                <p class="p-desc">Smoky vanilla and spicy dates.</p>
-                <span class="price-tag">KSh 8,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Khamrah Duhkan', 8500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Lattafa</span>
-                <h3 class="p-name">Khamrah Karaz</h3>
-                <p class="p-desc">Deep cherry and warm spices in an oriental blend.</p>
-                <span class="price-tag">KSh 8,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Khamrah Karaz', 8500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Kayali</span>
-                <h3 class="p-name">Lemon Sugar 14</h3>
-                <p class="p-desc">Fresh citrus meets gourmand sweetness.</p>
-                <span class="price-tag">KSh 9,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Lemon Sugar 14', 9500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Asdaaf</span>
-                <h3 class="p-name">Ameer Al Arab</h3>
-                <p class="p-desc">The scent of Arabian royalty and elegance.</p>
-                <span class="price-tag">KSh 6,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Ameer Al Arab', 6500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Kayali</span>
-                <h3 class="p-name">Boujee Marshmellow</h3>
-                <p class="p-desc">Fluffy, sweet, and purely addictive sugar dreams.</p>
-                <span class="price-tag">KSh 9,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Boujee Marshmellow', 9500)">Add to Basket</button>
-            </div>
-            <div class="product-card">
-                <span class="brand">Khadlaj</span>
-                <h3 class="p-name">Oud Marcja</h3>
-                <p class="p-desc">Exquisite Arabian oud with a modern, clean twist.</p>
-                <span class="price-tag">KSh 7,500</span>
-                <span class="decant-info">Decant: KSh 1,500</span>
-                <button class="add-btn" onclick="addToCart('Oud Marcja', 7500)">Add to Basket</button>
-            </div>
+        <h2 id="elite" class="category-header">Elite Collection</h2>
+        <div class="perfume-grid" id="grid-elite"></div>
+    </div>
+
+    <div id="perfumeModal" class="modal">
+        <div class="modal-content">
+            <h2 id="mTitle" style="letter-spacing: 4px; margin-bottom: 30px; font-weight: 300;"></h2>
+            <button class="option-btn" id="addDecant">15ml Decant — KSH 3,500</button>
+            <button class="option-btn" id="addFull">Full Bottle — KSH <span id="mPrice"></span></button>
+            <p onclick="closeModal()" style="margin-top: 30px; font-size: 0.6rem; cursor: pointer; letter-spacing: 2px; opacity: 0.5;">CLOSE</p>
         </div>
     </div>
 
     <script>
+        const perfumes = {
+            arabic: [
+                ['Khamarah Lattafa', 'Khamarah Lattafa.jpeg', 8500],
+                ['mousuf EAU DE PARFUM', 'mousuf EAU DE PARFUM.jpeg', 8000],
+                ['mousuf RAMADI', 'mousuf RAMADI.jpeg', 8000],
+                ['Ruby Fizz', 'Ruby Fizz.jpeg', 8000],
+                ['Vanilla Voyage', 'Vanilla Voyage.jpeg', 8500],
+                ['9pm NIGHT OUT', '9pm NIGHT OUT.jpeg', 8000],
+                ['9pm Rebel', '9pm Rebel.jpeg', 8000],
+                ['Ameerat Al Arab Prive Rose', 'Ameerat Rose.jpeg', 9000],
+                ['Dhukhan Lattafa', 'Dhukhan Lattafa.jpeg', 8500],
+                ['Hayaati', 'Hayaati.jpeg', 8000]
+            ],
+            designer: [
+                ['My Burberry', 'My Burberry.jpeg', 12500],
+                ['Prada', 'Prada.jpeg', 13000],
+                ['Sauvage Dior', 'Sauvage Dior.jpeg', 14500],
+                ['Terre D\'hermes', 'Terre D\'hermes.jpeg', 12000],
+                ['Versace', 'Versace.jpeg', 11500],
+                ['YSL Libre', 'Yves Saint Laurent Libre.jpeg', 14000],
+                ['Yves Saint Laurent', 'Yves Saint Laurent.jpeg', 13500],
+                ['Black Opium', 'Black Opium.jpeg', 14000],
+                ['Calvin Klein', 'Calvin Klein.jpeg', 11000],
+                ['Giorgio Armani', 'Giorgio Armani.jpeg', 13500],
+                ['Gucci Bloom Intense', 'Gucci Bloom Intense.jpeg', 14500],
+                ['J\'adore l\'Or', 'J\'adore l\'Or.jpeg', 14500],
+                ['Kayali EDEN JUICE APPLE', 'Kayali EDEN JUICE APPLE.jpeg', 13000],
+                ['Kayali LOVEFEST BURNING CHERRY', 'Kayali LOVEFEST BURNING CHERRY.jpeg', 13000]
+            ],
+            elite: [
+                ['Ombre Nomade', 'Ombre Nomade.jpeg', 15000],
+                ['Nuit De Feu', 'Nuit De Feu.jpeg', 15000],
+                ['MFK Baccarat Rouge 540', 'mfk-baccarat.jpeg', 15000],
+                ['MFK Extrait de parfum', 'mfk-extrait.jpeg', 15000],
+                ['Bergamote', 'Bergamote.jpeg', 15000],
+                ['Cocktail Intense', 'Cocktail Intense.jpeg', 15000],
+                ['Contre Moi', 'Contre Moi.jpeg', 15000],
+                ['Imagination', 'Imagination.jpeg', 15000],
+                ['Impadia', 'Impadia.jpeg', 15000]
+            ]
+        };
+
         let cart = [];
 
-        function toggleCart() {
-            document.getElementById('cart-panel').classList.toggle('open');
+        function renderAll() {
+            for (let cat in perfumes) {
+                const grid = document.getElementById(`grid-${cat}`);
+                perfumes[cat].forEach(p => {
+                    grid.innerHTML += `
+                        <div class="perfume-card" onclick="openModal('${p[0].replace(/'/g, "\\'")}', '${p[1]}', ${p[2]})">
+                            <img src="images/${p[1]}" alt="${p[0]}">
+                            <h4>${p[0]}</h4>
+                            <p style="font-size: 0.65rem; opacity: 0.5; letter-spacing: 1px;">SELECT SIZE</p>
+                        </div>`;
+                });
+            }
         }
 
-        function addToCart(name, price) {
-            cart.push({ name, price, fullPrice: price, decantPrice: 1500, type: 'Full Bottle' });
-            updateCartUI();
-            if(!document.getElementById('cart-panel').classList.contains('open')) toggleCart();
+        function openModal(name, img, price) {
+            document.getElementById('mTitle').innerText = name;
+            document.getElementById('mPrice').innerText = price.toLocaleString();
+            document.getElementById('perfumeModal').style.display = 'flex';
+            document.getElementById('addDecant').onclick = () => addToCart(name + " (15ml)", 3500);
+            document.getElementById('addFull').onclick = () => addToCart(name + " (Full Bottle)", price);
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            const totalLabel = document.getElementById('cart-total-price');
-            const countLabel = document.getElementById('cart-count');
-            container.innerHTML = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                total += item.price;
-                container.innerHTML += `
-                    <div class="cart-item-row">
-                        <div style="display:flex; justify-content:space-between; font-weight:700;">
-                            <span>${item.name}</span>
-                            <span>KSh ${item.price.toLocaleString()}</span>
-                        </div>
-                        <select onchange="updateType(${index}, this.value)" style="width:100%; margin-top:5px; padding:5px; border-radius:5px; border:1px solid #ddd;">
-                            <option value="Full Bottle" ${item.type === 'Full Bottle' ? 'selected' : ''}>Full Bottle</option>
-                            <option value="Decant" ${item.type === 'Decant' ? 'selected' : ''}>Decant (15ml)</option>
-                        </select>
-                        <button onclick="removeItem(${index})" style="background:none; border:none; color:#ff6b6b; cursor:pointer; font-size:0.75rem; margin-top:5px; font-weight:700;">&times; Remove</button>
-                    </div>`;
-            });
-            countLabel.innerText = cart.length;
-            totalLabel.innerText = "KSh " + total.toLocaleString();
+        function closeModal() { document.getElementById('perfumeModal').style.display = 'none'; }
+
+        function addToCart(label, price) {
+            cart.push({ label, price });
+            showToast();
+            updateUI();
+            closeModal();
         }
 
-        function updateType(index, newType) {
-            cart[index].type = newType;
-            cart[index].price = (newType === 'Full Bottle') ? cart[index].fullPrice : cart[index].decantPrice;
-            updateCartUI();
-        }
-
-        function removeItem(index) {
+        function removeFromCart(index) {
             cart.splice(index, 1);
-            updateCartUI();
+            updateUI();
         }
 
-        function sendToWhatsApp() {
-            if(cart.length === 0) return alert("Basket is empty!");
-            let message = "Hii Ms. Mutaii! I'd like to order from The Perfume Bar:%0A%0A";
-            cart.forEach(item => message += `• ${item.name} (${item.type}) - KSh ${item.price.toLocaleString()}%0A`);
-            let total = cart.reduce((sum, item) => sum + item.price, 0);
-            message += `%0A*Total: KSh ${total.toLocaleString()}*`;
-            window.open(`https://wa.me/254791830654?text=${message}`, '_blank');
+        function showToast() {
+            const t = document.getElementById("toast");
+            t.className = "show";
+            setTimeout(() => { t.className = t.className.replace("show", ""); }, 3000);
         }
+
+        function updateUI() {
+            let total = cart.reduce((sum, i) => sum + i.price, 0);
+            document.getElementById('cartCount').innerText = cart.length;
+            document.getElementById('cartTotal').innerText = total.toLocaleString();
+            document.getElementById('itemsContainer').innerHTML = cart.map((i, index) => `
+                <div class="cart-item">
+                    <span>${i.label}</span>
+                    <span>KSH ${i.price.toLocaleString()} <i class="fas fa-times remove-btn" onclick="removeFromCart(${index})"></i></span>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartList() {
+            const list = document.getElementById('cartItemsList');
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function confirmOrder() {
+            if(cart.length === 0) return alert("Your basket is empty.");
+            let total = cart.reduce((sum, i) => sum + i.price, 0);
+            let details = cart.map(i => i.label).join(", ");
+            let text = `Hii Ms. Mutaii! I'd like to order from The Perfume Bar: ${details}. Total: KSH ${total.toLocaleString()}`;
+            window.open(`https://wa.me/254708727556?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        renderAll();
     </script>
 </body>
 </html>
