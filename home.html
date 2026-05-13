@@ -4,163 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | The Perfume Bar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- Inter Sans-Serif for a minimalist, high-end look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --espresso: #291C0E;
+            --mocha: #4A3728;
+            --champagne: #E1D4C2;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
+        body, html {
             font-family: 'Inter', sans-serif;
-            background-color: #FFE8EC; /* Soft Rose Background */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            background-color: var(--espresso);
+            color: white;
+            line-height: 1.6;
         }
 
-        .about-container {
-            max-width: 900px;
+        /* Hero Section with home.png background */
+        .hero-section {
+            position: relative;
+            height: 100vh;
             width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('images/home.png') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 2rem;
-            animation: fadeIn 1.2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
-            font-weight: normal;
-            color: #E8A4B8; /* Warm Pink Tone */
-            text-align: center;
-            margin-bottom: 3rem;
-            letter-spacing: 2px;
-        }
-
-        .about-text {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-text p {
-            color: #7A9A91; /* Darkened ABD1C6 for better readability */
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .nav-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 3rem;
-        }
-
-        .nav-btn {
-            background: transparent;
-            border: 1px solid #ABD1C6;
-            color: #ABD1C6;
-            padding: 10px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.75rem;
+            color: var(--champagne);
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            font-weight: 500;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: 1px;
-        }
-
-        .nav-btn:hover {
-            background: #ABD1C6;
-            color: #FFE8EC;
-            transform: scale(1.05);
-        }
-
-        hr {
-            margin: 2.5rem auto;
-            border: none;
-            height: 1px;
-            background: #ABD1C6;
-            opacity: 0.3;
-            width: 80px;
-        }
-
-        .contact-section { text-align: center; }
-
-        .contact-section h3 {
-            color: #E8A4B8;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
             margin-bottom: 1rem;
         }
 
-        .contact-details {
-            color: #7A9A91;
-            font-size: 0.8rem;
-            line-height: 2;
+        .tagline {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        .contact-details a {
-            color: inherit;
+        /* Story Section integrated into the home page */
+        .story-content {
+            max-width: 700px;
+            background: rgba(41, 28, 14, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border: 1px solid rgba(225, 212, 194, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .story-content p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Updated Navigation Buttons */
+        .nav-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
             text-decoration: none;
+            color: var(--champagne);
+            border: 1px solid var(--champagne);
+            padding: 14px 28px;
+            font-size: 0.7rem;
             font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            min-width: 180px;
         }
 
-        .security-footer {
-            margin-top: 3rem;
-            font-size: 0.6rem;
-            color: rgba(122, 154, 145, 0.5);
-            text-align: center;
-            letter-spacing: 1px;
+        .nav-link:hover {
+            background: var(--champagne);
+            color: var(--espresso);
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 2.8rem; }
-            .about-text p { font-size: 0.8rem; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .story-content { padding: 1.5rem; }
+            .nav-group { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="about-container">
+    <section class="hero-section">
         <h1>The Perfume Bar</h1>
+        <p class="tagline">Unleash Your Essence</p>
+
+        <!-- Integrated Story Section -->
+        <div class="story-content">
+            <p>At The Perfume Bar, we believe fragrance is a statement of identity. Our mission is to spread happiness through beautiful scents, curating luxury designer brands and exclusive oils for the Nairobi soul.</p>
+        </div>
         
-        <div class="about-text">
-            <p>At The Perfume Bar, we believe that fragrance is more than just a scent — it's a memory, a feeling, a statement of who you are.</p>
-            <p>Our mission is simple: to make people happy, one beautiful scent at a time. From luxury designer brands to exclusive niche perfumes and rich Arabian oils, we curate only the best for the Nairobi soul. ✨</p>
+        <!-- Streamlined Navigation -->
+        <div class="nav-group">
+            <a href="index.html" class="nav-link">Intro</a>
+            <a href="shop.html" class="nav-link">Scent</a>
+            <a href="close shop.html" class="nav-link">Announcements</a>
         </div>
-
-        <div class="nav-buttons">
-            <a href="index.html" class="nav-btn"><i class="fas fa-home"></i> INTRO</a>
-            
-            <a href="shop.html" class="nav-btn"><i class="fas fa-shopping-bag"></i> SHOP</a>
-        </div>
-
-        <hr>
-
-        <div class="contact-section" id="contact">
-            <h3>CONNECT WITH US</h3>
-            <div class="contact-details">
-                <p><i class="fas fa-phone"></i> <a href="tel:0791830654">0791 830654</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254791830654" target="_blank">SEND A MESSAGE</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> NAIROBI, KENYA</p>
-            </div>
-        </div>
-
-        <div class="security-footer">
-            VERIFIED SECURE PORTAL | &copy; 2026 THE PERFUME BAR
-        </div>
-    </div>
+    </section>
 
 </body>
 </html>
